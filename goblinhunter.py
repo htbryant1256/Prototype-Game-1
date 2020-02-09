@@ -217,12 +217,12 @@ while forked_path2:
             input("You walk down the right path and see a giant birds nest.\nYou approach the nest and a gaint bird flys down!")
 
             input("\nPress any key to enter combat mode.")
-            mob_health = 20
+            mob_health = 15
             while mob_health > 0:
                 print(
                     "     _,.\n   ,` -.)\n    ( _/-\ -._\n   /,|`--._,-^|            ,\n   \_| |`-._/||          ,'|\n     |  `-, / |         /  /\n     |     || |        /  /\n      `r-._||/   __   /  /\n  __,-<_     )`-/  `./  /\n '  \   `---'   \   /  /\n'  \   `---'   \   /  /\n    |           |./  /\n    /           //  /\n\_/' \         |/  /\n |    |   _,^-'/  /\n |    , ``  (\/  /_\n  \,.->._    \X-=/^\n  (  /   `-._//^`\n   `Y-.____(__}\n    |     {__)")
                 player_attack = (random.randrange(4, 9) + weapon_damage)
-                mob_damage = random.randrange(10, 14)
+                mob_damage = random.randrange(6, 11)
                 mob_health -= player_attack
                 health -= mob_damage
                 if player_attack >= 7:
@@ -230,18 +230,14 @@ while forked_path2:
                 print("You did", player_attack, "points of damage!\nThe " + mob_name + " hit you for", mob_damage,
                       "points of damage!\n\n" + (mob_name).upper() + " HEALTH:", mob_health, "\n\nPLAYER HEALTH:",
                       health)
+                if health <= 0:
+                    print("GAME OVER")
+                    exit()
+
                 if mob_health <= 0:
                     print((mob_name).upper() + " Defeated!")
-                    random_coins = random.randrange(7, 14)
+                    random_coins = random.randrange(15, 20)
                     player_coins += random_coins
-                    print("You found", random_coins, "coins!\nYou now have", player_coins, "total coins!")
+                    print("You recive", random_coins, "coins!\nYou now have", player_coins, "total coins!")
                 input("Press any key to continue.")
                 birds_nest = False
-
-
-    else:
-        print("INVALID RESPONSE, TYPE AGAIN.")
-        del choice3
-print("\nYou leave the "+mob_name+" "+mob_area+" and continue ")
-
-print("\n\nEND OF DEMO THANKS FOR PLAYING")
