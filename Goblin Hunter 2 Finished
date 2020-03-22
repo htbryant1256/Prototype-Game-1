@@ -1,7 +1,7 @@
 import random
 weapon_damage = 0
 player_coins = 10
-health = 200
+health = 100
 attack = 10
 drag_dam = 20
 drag_hp = 60
