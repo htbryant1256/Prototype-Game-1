@@ -108,7 +108,6 @@ def shop(player_coins,health,attack,weapon_damage):
 def combat(health,attack,mob,bio,dam,mob_hp,weapon_damage,player_coins):
     input("\nPress Enter to start combat mode.")
     while mob_hp > 0:
-        print("TEST",weapon_damage)
         player_attack = attack + random.randrange(0,7) + weapon_damage
         mob_dam = dam + random.randrange(0,7)
         mob_hp -= player_attack
@@ -295,7 +294,7 @@ while act1:
         player_coins = list[1]
         act1 = False
     elif choice1 == "RIGHT":
-        list = scene(health, attack, mob1, bio1, dam1, mob_hp1, weapon_damage, player_coins)
+        list = scene(health, attack, mob2, bio2, dam2, mob_hp2, weapon_damage, player_coins)
         health = list[0]
         player_coins = list[1]
         act1 = False
@@ -331,12 +330,12 @@ act2 = True
 while act2:
     choice2 = input().upper()
     if choice2 == "LEFT":
-        list4 = scene(health, attack, mob1, bio1, dam1, mob_hp1, weapon_damage, player_coins)
+        list4 = scene(health, attack, mob3, bio3, dam3, mob_hp3, weapon_damage, player_coins)
         health = list[0]
         player_coins = list[1]
-        act1 = False
+        act2 = False
     elif choice2 == "RIGHT":
-        list4 = scene(health, attack, mob1, bio1, dam1, mob_hp1, weapon_damage, player_coins)
+        list4 = scene(health, attack, mob4, bio4, dam4, mob_hp4, weapon_damage, player_coins)
         health = list[0]
         player_coins = list[1]
         act2 = False
@@ -373,12 +372,12 @@ act3 = True
 while act3:
     choice3 = input().upper()
     if choice3 == "LEFT":
-        list5 = scene(health, attack, mob1, bio1, dam1, mob_hp1, weapon_damage, player_coins)
+        list5 = scene(health, attack, mob5, bio5, dam5, mob_hp5, weapon_damage, player_coins)
         health = list[0]
         player_coins = list[1]
         act3 = False
     elif choice3 == "RIGHT":
-        list5 = scene(health, attack, mob1, bio1, dam1, mob_hp1, weapon_damage, player_coins)
+        list5 = scene(health, attack, mob6, bio6, dam6, mob_hp6, weapon_damage, player_coins)
         health = list[0]
         player_coins = list[1]
         act3 = False
