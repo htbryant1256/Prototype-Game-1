@@ -20,7 +20,7 @@ health = 100
 attack = 10
 
 drag_dam = 30 + (diff2 * 1.2)
-drag_hp = 70 + (diff2 * 1.2)
+drag_hp = 50 + (diff2 * 1.2)
 mob_list = [" Goblin ", "Skeleton", " Spider ", "Werewolf"]
 bio_list = ["Cave", "Den", "Camp", "Fortress", "Castle"]
 
@@ -54,80 +54,107 @@ dam6 = random.randrange(15, 20) + diff2
 
 
 def shop(player_coins, health, attack, weapon_damage):
-    merchant = input("You stumble accross a traveling merchant. What will you do?\n\nShop\nLeave\n").upper()
-    if merchant == "SHOP":
+
         shop = True
         while shop:
-            print("\n\n\n\n\n\n\n\n\n\nBrowse my wares sir!")
-            print("PLAYER COINS:", player_coins)
-            print(" _____________________________________________________________________________")
-            print("|     PLAYER COINS:", player_coins, "                                           |")
-            print("|                                                                             |")
-            print("|     [1] Minor Health Potion +10hp: 7$                                       |")
-            print("|     [2] Greater Health Potion +20: 12$                                      |")
-            print("|     [3] Small Dagger        +5dmg: 10$                                      |")
-            print("|     [4] Elvin Sword         +7dmg: 15$                                      |")
-            print("|     [5] Claymore           +10dmg: 20$                                      |")
-            print("|                                                                             |")
-            print("|                                                                             |")
-            print("|                                                                             |")
-            print("|                                                                             |")
-            print("|                                                                             |")
-            print("|                                                                             |")
-            print("|                                                                             |")
-            print("|                                                                             |")
-            print("|_____________________________________________________________________________|")
-            print("Type 'EXIT' to exit shop")
-            item = input("What would you like to purchase?\n")
-            if item == "EXIT":
-                shop = False
-            elif (item == "1") and (player_coins >= 7):
-                health += 10
-                player_coins -= 7
-                print("Your health is now", health, "points\n")
-                print("You now have", player_coins, "coins.\n")
-                del item
-                input("\nPress ENTER to continue.\n")
-            elif item == "2" and (player_coins >= 12):
-                health += 20
-                player_coins -= 12
-                print("Your health is now", health, "points\n")
-                print("You now have", player_coins, "coins.\n")
-                del item
-                input("\nPress ENTER to continue.\n")
-            elif item == "3" and (player_coins >= 10):
-                del weapon_damage
-                weapon_damage = 5
-                player_coins -= 10
-                print("Your attack damage is now", weapon_damage, "points\n")
-                print("You now have", player_coins, "coins.\n")
-                del item
-                input("\nPress ENTER to continue.\n")
-            elif item == "4" and (player_coins >= 15):
-                del weapon_damage
-                weapon_damage = 7
-                player_coins -= 15
-                print("Your attack damage is now", weapon_damage, "points\n")
-                print("You now have", player_coins, "coins.\n")
-                del item
-                input("\nPress ENTER to continue.\n")
-            elif item == "5" and (player_coins >= 20):
-                del weapon_damage
-                weapon_damage = 10
-                player_coins -= 20
-                print("Your attack damage is now", weapon_damage, "points\n")
-                print("You now have", player_coins, "coins.\n")
-                del item
-                input("\nPress ENTER to continue.\n")
-            else:
-                input("ERROR PRESS ENTER TO CONTINUE\n")
+            merchant = input("You stumble accross a traveling merchant. What will you do?\n\nShop\nLeave\n").upper()
 
-    return [weapon_damage, health, player_coins]
+            if merchant == "SHOP":
+                print("\n\n\n\n\n\n\n\n\n\nBrowse my wares sir!")
+
+                print(" _____________________________________________________________________________")
+                print("|     PLAYER COINS:", player_coins, "                                                |")
+                print("|                                                                             |")
+                print("|     [1] Minor Health Potion +10hp: 7$                                       |")
+                print("|     [2] Greater Health Potion +20: 12$                                      |")
+                print("|     [3] Small Dagger        +5dmg: 10$                                      |")
+                print("|     [4] Elvin Sword         +7dmg: 15$                                      |")
+                print("|     [5] Claymore           +10dmg: 20$                                      |")
+                print("|     [6] Diamond Sword      +15dmg: 35$                                      |")
+                print("|     [7] Enchanted Sword    +20dmg: 45$                                      |")
+                print("|     [8] Attack Potion    +5 PermDMG: 20$                                    |")
+                print("|                                                                             |")
+                print("|                                                                             |")
+                print("|                                                                             |")
+                print("|                                                                             |")
+                print("|                                                                             |")
+                print("|_____________________________________________________________________________|")
+                print("Type 'EXIT' to exit shop")
+                item = input("What would you like to purchase?\n").upper()
+                if item == "EXIT":
+                    shop = False
+                elif (item == "1") and (player_coins >= 7):
+                    health += 10
+                    player_coins -= 7
+                    print("Your health is now", health, "points\n")
+                    print("You now have", player_coins, "coins.\n")
+                    del item
+                    input("\nPress ENTER to continue.\n")
+                elif item == "2" and (player_coins >= 12):
+                    health += 20
+                    player_coins -= 12
+                    print("Your health is now", health, "points\n")
+                    print("You now have", player_coins, "coins.\n")
+                    del item
+                    input("\nPress ENTER to continue.\n")
+                elif item == "3" and (player_coins >= 10):
+                    del weapon_damage
+                    weapon_damage = 5
+                    player_coins -= 10
+                    print("Your attack damage is now", weapon_damage, "points\n")
+                    print("You now have", player_coins, "coins.\n")
+                    del item
+                    input("\nPress ENTER to continue.\n")
+                elif item == "4" and (player_coins >= 15):
+                    del weapon_damage
+                    weapon_damage = 7
+                    player_coins -= 15
+                    print("Your attack damage is now", weapon_damage, "points\n")
+                    print("You now have", player_coins, "coins.\n")
+                    del item
+                    input("\nPress ENTER to continue.\n")
+                elif item == "5" and (player_coins >= 20):
+                    del weapon_damage
+                    weapon_damage = 10
+                    player_coins -= 20
+                    print("Your attack damage is now", weapon_damage, "points\n")
+                    print("You now have", player_coins, "coins.\n")
+                    del item
+                    input("\nPress ENTER to continue.\n")
+                elif item == "6" and (player_coins >= 35):
+                    del weapon_damage
+                    weapon_damage = 15
+                    player_coins -= 35
+                    print("Your attack damage is now", weapon_damage, "points\n")
+                    print("You now have", player_coins, "coins.\n")
+                    del item
+                    input("\nPress ENTER to continue.\n")
+                elif item == "7" and (player_coins >= 45):
+                    del weapon_damage
+                    weapon_damage = 20
+                    player_coins -= 45
+                    print("Your attack damage is now", weapon_damage, "points\n")
+                    print("You now have", player_coins, "coins.\n")
+                    del item
+                    input("\nPress ENTER to continue.\n")
+                elif item == "8" and (player_coins >= 20):
+                    attack += 5
+                    player_coins -= 20
+                    print("Your attack is now", attack, "points\n")
+                    print("You now have", player_coins, "coins.\n")
+                    del item
+                    input("\nPress ENTER to continue.\n")
+
+                else:
+                    input("ERROR PRESS ENTER TO CONTINUE\n")
+            elif merchant == "LEAVE":
+                shop = False
+        return [weapon_damage, health, player_coins]
 
 
 def combat(health, attack, mob, bio, dam, mob_hp, weapon_damage, player_coins):
-    mob_roll = random.randrange(0, 5)
-    player_roll = random.randrange(0, 5)
+    mob_roll = random.randrange(0, 10)
+    player_roll = random.randrange(0, 10)
 
     player_turn = True
     while player_turn:
@@ -142,7 +169,7 @@ def combat(health, attack, mob, bio, dam, mob_hp, weapon_damage, player_coins):
 
             print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
             print(" _____________________________________________________________________________")
-            print("|             [Enemy Health:", int(mob_hp), "]             [Health:", health, "]                  |")
+            print("|             [Enemy Health:", int(mob_hp), "]             [Health:", int(health), "]                  |")
             print("|  ____________________________________     |\             //                 |")
             print("| |    You did", player_attack, "points of damage!     |   \ \           _!_                 |")
             print("| |                                     |    \ \         /___\                |")
@@ -170,7 +197,7 @@ def combat(health, attack, mob, bio, dam, mob_hp, weapon_damage, player_coins):
                 input("Press Enter to Continue")
                 print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
                 print(" _____________________________________________________________________________")
-                print("|             [Enemy Health:", int(mob_hp), "]             [Health:", health,
+                print("|             [Enemy Health:", int(mob_hp), "]             [Health:", int(health),
                       "]                  |")
                 print("|  ____________________________________     |\             //                 |")
                 print("| |                                     |   \ \           _!_                 |")
@@ -205,7 +232,7 @@ def combat(health, attack, mob, bio, dam, mob_hp, weapon_damage, player_coins):
             input("Press Enter to Continue")
             print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
             print(" _____________________________________________________________________________")
-            print("|             [Enemy Health:", int(mob_hp), "]             [Health:", health, "]                  |")
+            print("|             [Enemy Health:", int(mob_hp), "]             [Health:", int(health), "]                  |")
             print("|  ____________________________________     |\             //                 |")
             print("| |                                     |   \ \           _!_                 |")
             print("| |      The " + mob + " hit you for", mob_dam, "   |    \ \         /___\                |")
@@ -234,7 +261,7 @@ def combat(health, attack, mob, bio, dam, mob_hp, weapon_damage, player_coins):
                 input("Press Enter to Continue")
                 print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
                 print(" _____________________________________________________________________________")
-                print("|             [Enemy Health:", int(mob_hp), "]             [Health:", health,
+                print("|             [Enemy Health:", int(mob_hp), "]             [Health:", int(health),
                       "]                  |")
                 print("|  ____________________________________     |\             //                 |")
                 print("| |    You did", player_attack, "points of damage!     |   \ \           _!_                 |")
@@ -259,8 +286,8 @@ def combat(health, attack, mob, bio, dam, mob_hp, weapon_damage, player_coins):
                     player_turn = False
 
     print((mob).upper() + " Defeated!")
-    random_coins = random.randrange(12, 17)
-    player_coins += random_coins + (diff2 * 1.5)
+    random_coins = random.randrange(12, 17) + (diff2 * 2)
+    player_coins += random_coins
     print("You receive", random_coins, "coins!\nYou now have", player_coins, "total coins!")
     input("Press Enter to continue.")
     return (health, player_coins)
@@ -270,7 +297,7 @@ def scene(health, attack, mob, bio, dam, mob_hp, weapon_damage, player_coins):
     print("You arrive at the " + mob, bio)
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
     print(" _____________________________________________________________________________")
-    print("|             [Enemy Health:", int(mob_hp), "]             [Health:", health, "]                  |")
+    print("|             [Enemy Health:", int(mob_hp), "]             [Health:", int(health), "]                  |")
     print("|                                                                             |")
     print("|                                                                             |")
     print("|                                                                             |")
@@ -533,23 +560,23 @@ print("|                                                                        
 print("|_____________________________________________________________________________|")
 
 combat(health, attack, "dragon", "Lair", drag_dam, drag_hp, weapon_damage, player_coins)
-
-print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-print(" _____________________________________________________________________________")
-print("|                                                                             |")
-print("|                                                                             |")
-print("|                   ________  ________   _______   ______                     |")
-print("|                  /_  __/ / / / ____/  / ____/ | / / __ \                    |")
-print("|                   / / / /_/ / __/    / __/ /  |/ / / / /                    |")
-print("|                  / / / __  / /___   / /___/ /|  / /_/ /                     |")
-print("|                 /_/ /_/ /_/_____/  /_____/_/ |_/_____/                      |")
-print("|                                                                             |")
-print("|                                                                             |")
-print("|                                                                             |")
-print("|                                                                             |")
-print("|                           [CONGRATULATIONS!]                                |")
-print("|                                                                             |")
-print("|                                                                             |")
-print("|                                                                             |")
-print("|                                                                             |")
-print("|_____________________________________________________________________________|")
+for x in range(1):
+    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+    print(" _____________________________________________________________________________")
+    print("|                                                                             |")
+    print("|                                                                             |")
+    print("|                   ________  ________   _______   ______                     |")
+    print("|                  /_  __/ / / / ____/  / ____/ | / / __ \                    |")
+    print("|                   / / / /_/ / __/    / __/ /  |/ / / / /                    |")
+    print("|                  / / / __  / /___   / /___/ /|  / /_/ /                     |")
+    print("|                 /_/ /_/ /_/_____/  /_____/_/ |_/_____/                      |")
+    print("|                                                                             |")
+    print("|                                                                             |")
+    print("|                                                                             |")
+    print("|                                                                             |")
+    print("|                           [CONGRATULATIONS!]                                |")
+    print("|                                                                             |")
+    print("|                                                                             |")
+    print("|                                                                             |")
+    print("|                                                                             |")
+    print("|_____________________________________________________________________________|")
